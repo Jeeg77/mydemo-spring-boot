@@ -1,0 +1,41 @@
+In questa app spring-boot generata tramite: https://start.spring.io sono passati in rassegna alcuni argomenti i quali sono messi in pratica per mezzo di
+semplici esempi. Gli argomenti sono i seguenti:
+
+1) Implementazione di un semplice batch realizzato tramite Spring-Batch, la classe in questione è BatchConfig. Il batch è chiamato ed eseguito tramite 
+   api/REST (/hello) esposta da BatchController. L'esempio include anche l'use dei ruoli gestiti da spring-security. Il batch per funzionare ha voluto
+   un database in memoria (h2), configurato in application.yaml e creato/popolato tramite script schema-h2.sql. Successivamente su questo database è stata 
+   anche aggiunta un tabella "Utente" per gestire la fase di autenticazione/autorizzazione. Il database, una volta lanciata l'app, è raggiungibile a 
+   localhost:8080/h2-console.
+   
+2) Implementazione tipica logica di autenticazione/autorizzazione (stateless ovvero senza utilizzare il concetto di "sessione" cioè il token è valido
+   finchè non viene invalidato apposta in qualche punto del codice come ad esempio una logout che lo invalida, a quel punto occore rifare una login per 
+   generarne uno nuovo) di spring-security tramite l'utilizzo di un token JWT. AuthController espone l'end-point della login (autenticazione) il quale 
+   autentica un utente e genera un token il quale è grado di autorizzare o meno quell'utente ad eseguire le altre operazioni. SecurityConfig e JWTAuthFilter 
+   gestiscono le autorizzazioni (anche in base al ruolo-utente) ad eseguire/chiamare le operazioni dell'app. Una volta eseguita, da swagger, l'api di login 
+   (come 'password' utilizzare quelle i cui Bcrypt Hash sono presenti a db) l'api restituisce il token, come response, a quel punto passare il token generato nell'header 
+   delle varie chiamate agli end-point.
+   
+   gringo66/iperpassword
+   antani55/soloio
+   barracuda77/stocazzo
+   
+3) Implementazione di un broker Kafka che (in locale) permette ad un producer (ProducerKafka) di scrivere e ad un consumer (ConsumerKafka) di leggere 
+   un topic creato sul server locale. 
+   - Il server kafka viene avviato su localhost:9092
+   - Il nome del topic è prova-topic
+   - Per vedere tutte le altre configurazioni è presente su deasktop un file Kafka-local (cmd lines).txt
+   
+4) I flussi Saluto, Minaccia, Congratulazioni servono per far vedere le 3 modalità di realizzazione della Spring injection, in particolare le differenze
+   su cosa accade a runtime a seconda del caso.
+   
+5) L'interfacciamento alla tabella utente del db in memoria è fatto tramite la classe AppUser che è una entity JPA.
+
+6) OpenApiConfig configura l'utilizzo dello swagger il quale, una volta che l'app è partita, risponde all'indirizzo: localhost:8080/swagger-ui/index.html
+
+7) In generale sono presentate, all'interno del codice, molte delle Spring annotation più utilizzate.
+
+N.B. le classi eseguibili sono dunque: 
+     MydemoSpringBootApplication: una volta lanciata è possibile visualizzare lo swagger e chiamare gli end-point, incluso quello relativo al batch.
+     ProducerKafka e ConsumerKafka: rispettivamente per scrivere e leggere su/dal topic Kafka a seguito dell'avvio del server.
+     
+     per quanto riguarda la chiamata su localhost:8080 del db-h2 e dello swagger non ci sono conflitti sull'utilizzo della porta.

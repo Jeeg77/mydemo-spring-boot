@@ -26,7 +26,7 @@ public class OpenApiConfig {
                         .name("Authorization")
                         .type(SecurityScheme.Type.HTTP)
                         .scheme("bearer")
-                        .bearerFormat("JWT")));
+                        .bearerFormat("JWT"))).addSecurityItem(new SecurityRequirement().addList("bearer-jwt"));
     }
 	
 }

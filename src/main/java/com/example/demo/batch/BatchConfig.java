@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
 
+import com.example.demo.util.Constants;
+
 
 @Configuration
 @EnableBatchProcessing
@@ -34,7 +36,7 @@ public class BatchConfig {
     @Bean
     Tasklet helloWorldTasklet() {
         return (contribution, chunkContext) -> {
-            System.out.println("Hello from Spring Batch!");
+            System.out.println(Constants.HELLO);
             return RepeatStatus.FINISHED;
         };
     }

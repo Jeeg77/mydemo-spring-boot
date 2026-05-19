@@ -1,8 +1,8 @@
-In questa app spring-boot generata tramite: https://start.spring.io sono passati in rassegna alcuni argomenti i quali sono messi in pratica per mezzo di
+In questa app spring-boot generata tramite: https://start.spring.io sono passati in rassegna alcuni argomenti i quali sono anche messi in pratica per mezzo di
 semplici esempi. Gli argomenti sono i seguenti:
 
 1) Implementazione di un semplice batch realizzato tramite Spring-Batch, la classe in questione è BatchConfig. Il batch è chiamato ed eseguito tramite 
-   api/REST (/hello) esposta da BatchController. L'esempio include anche l'use dei ruoli gestiti da spring-security. Il batch per funzionare ha voluto
+   api/REST (/hello) esposta da BatchController. L'esempio include anche l'uso dei ruoli gestiti da spring-security. Il batch per funzionare ha voluto
    un database in memoria (h2), configurato in application.yaml e creato/popolato tramite script schema-h2.sql. Successivamente su questo database è stata 
    anche aggiunta un tabella "Utente" per gestire la fase di autenticazione/autorizzazione. Il database, una volta lanciata l'app, è raggiungibile a 
    localhost:8080/h2-console.
@@ -23,7 +23,7 @@ semplici esempi. Gli argomenti sono i seguenti:
    un topic creato sul server locale. 
    - Il server kafka viene avviato su localhost:9092
    - Il nome del topic è prova-topic
-   - Per vedere tutte le altre configurazioni è presente su deasktop un file Kafka-local (cmd lines).txt
+   - Per vedere tutte le altre configurazioni è presente su desktop un file Kafka-local (cmd lines).txt
    
 4) I flussi Saluto, Minaccia, Congratulazioni servono per far vedere le 3 modalità di realizzazione della Spring injection, in particolare le differenze
    su cosa accade a runtime a seconda del caso.

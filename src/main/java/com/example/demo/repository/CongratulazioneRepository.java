@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class CongratulazioneRepository {
 
 	public CongratulazioneRepository() {
-		System.out.println("Congratulazioni da parte di CongratulazioneRepository: istanziato tramite field injection! ");
+		System.out.println("Congratulazioni da parte di CongratulazioneRepository: istanziato nel service tramite field injection! ");
 	}
 
 	public String congratulati() {

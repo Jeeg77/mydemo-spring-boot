@@ -16,7 +16,7 @@ public class ReazioneService {
 	@Autowired
 	private CongratulazioneRepository congratulazioneRepository;
 	
-	// CONSTRUCTOR INJECTION (di SalutoService, @Autowired opzionale con un solo costruttore).
+	// CONSTRUCTOR INJECTION (di SalutoRepository, @Autowired opzionale con un solo costruttore).
 	public ReazioneService(SalutoRepository salutoRepository) {
 		System.out.println("Reazione di ReazioneService: non sono ancora state ricevute ne minacce ne congratulazioni, soltanto saluti! ");
 		this.salutoRepository = salutoRepository;
@@ -25,7 +25,7 @@ public class ReazioneService {
 	// SETTER INJECTION (di MinacciaRepository)
 	@Autowired
 	public void setMinacciaRepository(MinacciaRepository minacciaRepository) {
-		System.out.println("Saluti, insulti e congratulazioni da parte di ReazioneService: minacciaRepository e congratulazioneRepository sono stati finalmente iniettati! ");
+		System.out.println("Saluti, minacce e congratulazioni da parte di ReazioneService: minacciaRepository e congratulazioneRepository sono stati finalmente iniettati anche loro! ");
 		this.minacciaRepository = minacciaRepository;
 	}
 	
